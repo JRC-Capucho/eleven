@@ -1,9 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 import { User } from "../../../entities/User/User";
-import { IUserRepository } from "../../../repositories/User/IUserCreateRepository";
+import { IUserCreateRepository } from "../../../repositories/User/IUserCreateRepository";
 
 
-export class ORMCreateUser implements IUserRepository {
+export class ORMCreateUser implements IUserCreateRepository {
   constructor(private prisma: PrismaClient) { }
 
   async findByEmail(email: string): Promise<User | undefined> {

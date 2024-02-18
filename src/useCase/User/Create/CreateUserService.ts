@@ -1,11 +1,11 @@
 import { User } from "../../../entities/User/User";
-import { IUserRepository } from "../../../repositories/User/IUserCreateRepository";
-import { IUserDTO } from "./IUserDTO";
+import { IUserCreateRepository } from "../../../repositories/User/IUserCreateRepository";
+import { IUserCreateDTO } from "./IUserCreateDTO";
 
 export class CreateUserService {
-  constructor(private usersRespository: IUserRepository){}
+  constructor(private usersRespository: IUserCreateRepository){}
 
-  async execute({name,email,password}:IUserDTO):Promise<void> {
+  async execute({name,email,password}:IUserCreateDTO):Promise<void> {
 
     const userExists =  await this.usersRespository.findByEmail(email)
 
