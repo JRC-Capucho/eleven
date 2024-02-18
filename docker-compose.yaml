@@ -1,0 +1,15 @@
+networks:
+  api:
+    name: api
+
+services:
+  mysql:
+    image: mysql:8.3
+    container_name: mysql
+    ports:
+      - "32768:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: "UEFA"
+    networks:
+      - api
